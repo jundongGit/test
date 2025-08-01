@@ -1,0 +1,643 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Material Design 设计系统变量 */
+:root {
+    /* 主色调 - Material Design Blue */
+    --primary-color: #2196F3;
+    --primary-light: #64B5F6;
+    --primary-dark: #1976D2;
+    --primary-text: #FFFFFF;
+    
+    /* 强调色 - Material Design Orange */
+    --accent-color: #FF9800;
+    --accent-light: #FFB74D;
+    --accent-dark: #F57C00;
+    
+    /* 功能色 */
+    --success-color: #4CAF50;
+    --warning-color: #FF9800;
+    --error-color: #F44336;
+    --info-color: #2196F3;
+    
+    /* 中性色 */
+    --text-primary: rgba(0, 0, 0, 0.87);
+    --text-secondary: rgba(0, 0, 0, 0.54);
+    --text-disabled: rgba(0, 0, 0, 0.38);
+    --text-hint: rgba(0, 0, 0, 0.38);
+    
+    /* 背景色 */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #FAFAFA;
+    --bg-surface: #FFFFFF;
+    --bg-background: #F5F5F5;
+    
+    /* 分割线 */
+    --divider-color: rgba(0, 0, 0, 0.12);
+    
+    /* Material Design 阴影 */
+    --elevation-1: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    --elevation-2: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    --elevation-3: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);
+    --elevation-4: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    --elevation-6: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    --elevation-8: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    --elevation-12: 0 7px 8px -4px rgba(0,0,0,.2), 0 12px 17px 2px rgba(0,0,0,.14), 0 5px 22px 4px rgba(0,0,0,.12);
+    --elevation-16: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+    --elevation-24: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+    
+    /* 圆角 */
+    --border-radius-small: 4px;
+    --border-radius-medium: 8px;
+    --border-radius-large: 12px;
+    --border-radius-full: 50%;
+    
+    /* 间距 - Material Design 8dp Grid */
+    --spacing-1: 8px;
+    --spacing-2: 16px;
+    --spacing-3: 24px;
+    --spacing-4: 32px;
+    --spacing-5: 40px;
+    --spacing-6: 48px;
+    --spacing-7: 56px;
+    --spacing-8: 64px;
+    
+    /* 字体 - Material Design Typography */
+    --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-size-caption: 12px;
+    --font-size-body: 14px;
+    --font-size-body-large: 16px;
+    --font-size-title: 20px;
+    --font-size-headline: 24px;
+    --font-size-display: 34px;
+    
+    /* 行高 */
+    --line-height-caption: 16px;
+    --line-height-body: 20px;
+    --line-height-title: 28px;
+    --line-height-headline: 32px;
+    --line-height-display: 40px;
+    
+    /* Material Design 动画 */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 225ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* 状态栏高度 */
+    --status-bar-height: 24px;
+}
+
+/* 基础样式 */
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    color: var(--text-primary);
+    background: var(--bg-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+}
+
+/* 容器样式 */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-3);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 头部样式 */
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-6);
+    padding: var(--spacing-5) 0;
+}
+
+.logo {
+    margin-bottom: var(--spacing-3);
+    display: inline-block;
+}
+
+.logo svg {
+    filter: drop-shadow(var(--elevation-2));
+    transition: var(--transition-medium);
+}
+
+.logo:hover svg {
+    filter: drop-shadow(var(--elevation-4));
+    transform: scale(1.05);
+}
+
+.header h1 {
+    font-size: var(--font-size-display);
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-1);
+    line-height: var(--line-height-display);
+    letter-spacing: 0.25px;
+}
+
+.header p {
+    font-size: var(--font-size-body-large);
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin: 0;
+    line-height: var(--line-height-body);
+}
+
+/* 主要内容区域 */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+}
+
+/* Material Design Card 样式 */
+.card {
+    background: var(--bg-surface);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--elevation-1);
+    border: none;
+    transition: var(--transition-medium);
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: var(--elevation-3);
+}
+
+.card:active {
+    box-shadow: var(--elevation-2);
+}
+
+/* 输入区域样式 */
+.input-section {
+    padding: var(--spacing-4);
+}
+
+.input-label {
+    display: block;
+    font-size: var(--font-size-body);
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-1);
+    line-height: var(--line-height-body);
+    letter-spacing: 0.15px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Material Design Text Field 样式 */
+.number-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: var(--font-size-body-large);
+    border: none;
+    border-bottom: 2px solid var(--divider-color);
+    border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    transition: var(--transition-medium);
+    font-family: inherit;
+    line-height: var(--line-height-body);
+    height: 56px;
+    outline: none;
+}
+
+.number-input:hover {
+    border-bottom-color: var(--text-secondary);
+    background: var(--bg-secondary);
+}
+
+.number-input:focus {
+    border-bottom-color: var(--primary-color);
+    background: var(--bg-secondary);
+    box-shadow: 0 2px 0 0 var(--primary-color);
+}
+
+.number-input::placeholder {
+    color: var(--text-hint);
+    font-weight: 400;
+}
+
+/* Material Design Icon Button 样式 */
+.clear-btn {
+    position: absolute;
+    right: var(--spacing-1);
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: var(--spacing-1);
+    border-radius: var(--border-radius-full);
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+}
+
+.clear-btn:hover {
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--text-primary);
+}
+
+.clear-btn:active {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+/* 结果显示区域 */
+.result-section {
+    padding: var(--spacing-4);
+}
+
+.result-label {
+    font-size: var(--font-size-body);
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-1);
+    line-height: var(--line-height-body);
+    letter-spacing: 0.15px;
+}
+
+.result-display {
+    min-height: 56px;
+    padding: 12px 16px;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--divider-color);
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-body-large);
+    font-weight: 400;
+    color: var(--text-primary);
+    word-break: break-all;
+    line-height: var(--line-height-body);
+    transition: var(--transition-medium);
+    cursor: pointer;
+}
+
+.result-display:hover {
+    background: var(--bg-surface);
+    border-color: var(--text-secondary);
+}
+
+.placeholder {
+    color: var(--text-hint);
+    font-style: normal;
+}
+
+/* 示例区域 */
+.examples-section {
+    padding: var(--spacing-4);
+}
+
+.examples-section h3 {
+    font-size: var(--font-size-title);
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-3);
+    line-height: var(--line-height-title);
+    letter-spacing: 0.15px;
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-2);
+}
+
+.example-item {
+    padding: var(--spacing-2);
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-small);
+    text-align: center;
+    transition: var(--transition-medium);
+    border: 1px solid transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.example-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary-color);
+    opacity: 0;
+    transition: var(--transition-fast);
+    z-index: 0;
+}
+
+.example-item:hover {
+    background: var(--bg-surface);
+    border-color: var(--primary-color);
+    box-shadow: var(--elevation-2);
+    transform: translateY(-2px);
+}
+
+.example-item:hover::before {
+    opacity: 0.04;
+}
+
+.example-item:active {
+    transform: translateY(0);
+    box-shadow: var(--elevation-1);
+}
+
+.example-number {
+    display: block;
+    font-size: var(--font-size-body-large);
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-1);
+    line-height: var(--line-height-body);
+    position: relative;
+    z-index: 1;
+}
+
+.example-text {
+    display: block;
+    font-size: var(--font-size-caption);
+    color: var(--text-secondary);
+    line-height: var(--line-height-caption);
+    position: relative;
+    z-index: 1;
+}
+
+/* 页脚样式 */
+.footer {
+    text-align: center;
+    padding: var(--spacing-3) 0;
+    color: var(--text-secondary);
+    font-size: var(--font-size-caption);
+    line-height: var(--line-height-caption);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-2);
+    }
+    
+    .header h1 {
+        font-size: var(--font-size-headline);
+        line-height: var(--line-height-headline);
+    }
+    
+    .header p {
+        font-size: var(--font-size-body);
+    }
+    
+    .input-section,
+    .result-section,
+    .examples-section {
+        padding: var(--spacing-3);
+    }
+    
+    .number-input {
+        font-size: var(--font-size-body);
+        height: 48px;
+    }
+    
+    .result-display {
+        font-size: var(--font-size-body);
+        min-height: 48px;
+    }
+    
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: var(--font-size-title);
+        line-height: var(--line-height-title);
+    }
+    
+    .input-section,
+    .result-section,
+    .examples-section {
+        padding: var(--spacing-2);
+    }
+    
+    .number-input {
+        font-size: var(--font-size-body);
+        height: 48px;
+    }
+}
+
+/* Material Design 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.input-section {
+    animation: fadeInUp 0.3s var(--transition-medium);
+}
+
+.result-section {
+    animation: fadeInUp 0.3s var(--transition-medium) 0.1s both;
+}
+
+.examples-section {
+    animation: fadeInUp 0.3s var(--transition-medium) 0.2s both;
+}
+
+/* 错误状态 - Material Design Error */
+.error {
+    border-bottom-color: var(--error-color) !important;
+    box-shadow: 0 2px 0 0 var(--error-color) !important;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: var(--font-size-caption);
+    margin-top: var(--spacing-1);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    line-height: var(--line-height-caption);
+}
+
+/* 成功状态 - Material Design Success */
+.success {
+    border-bottom-color: var(--success-color) !important;
+    box-shadow: 0 2px 0 0 var(--success-color) !important;
+}
+
+/* 加载状态 */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* 禁用状态 */
+.disabled {
+    opacity: 0.38;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* Material Design Ripple 效果 */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Material Design 工具提示 */
+.tooltip {
+    position: relative;
+}
+
+.tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(97, 97, 97, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: var(--border-radius-small);
+    font-size: var(--font-size-caption);
+    white-space: nowrap;
+    z-index: 1000;
+    margin-bottom: var(--spacing-1);
+    box-shadow: var(--elevation-2);
+}
+
+/* Material Design 分割线 */
+.divider {
+    height: 1px;
+    background: var(--divider-color);
+    margin: var(--spacing-3) 0;
+}
+
+/* Material Design 徽章 */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    font-size: var(--font-size-caption);
+    line-height: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: var(--primary-color);
+    color: var(--primary-text);
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    box-shadow: var(--elevation-1);
+}
+
+/* Material Design 标签 */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: var(--font-size-caption);
+    line-height: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--divider-color);
+    color: var(--text-secondary);
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    transition: var(--transition-fast);
+}
+
+.tag:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background: rgba(33, 150, 243, 0.04);
+}
+
+/* Material Design 浮动操作按钮 */
+.fab {
+    position: fixed;
+    bottom: var(--spacing-3);
+    right: var(--spacing-3);
+    width: 56px;
+    height: 56px;
+    border-radius: var(--border-radius-full);
+    background: var(--primary-color);
+    color: var(--primary-text);
+    border: none;
+    box-shadow: var(--elevation-6);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-medium);
+    z-index: 1000;
+}
+
+.fab:hover {
+    box-shadow: var(--elevation-8);
+    transform: scale(1.05);
+}
+
+.fab:active {
+    box-shadow: var(--elevation-12);
+    transform: scale(0.95);
+} 

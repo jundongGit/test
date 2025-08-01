@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字转中文大写转换器</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部标题区域 -->
+        <header class="header">
+            <div class="logo">
+                <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+                    <circle cx="28" cy="28" r="28" fill="#2196F3"/>
+                    <path d="M18 28L26 36L38 20" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h1>数字转中文大写</h1>
+            <p>输入数字，自动转换为中文大写</p>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main">
+            <!-- 输入区域 -->
+            <div class="card input-section">
+                <label for="numberInput" class="input-label">请输入数字</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="numberInput" 
+                        class="number-input" 
+                        placeholder="例如：123456"
+                        autocomplete="off"
+                    >
+                    <button id="clearBtn" class="clear-btn ripple" title="清空">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 结果显示区域 -->
+            <div class="card result-section">
+                <div class="result-label">中文大写</div>
+                <div id="resultDisplay" class="result-display ripple">
+                    <span class="placeholder">等待输入...</span>
+                </div>
+            </div>
+
+            <!-- 示例区域 -->
+            <div class="card examples-section">
+                <h3>示例</h3>
+                <div class="examples-grid">
+                    <div class="example-item ripple">
+                        <span class="example-number">123</span>
+                        <span class="example-text">壹佰贰拾叁</span>
+                    </div>
+                    <div class="example-item ripple">
+                        <span class="example-number">1000</span>
+                        <span class="example-text">壹仟</span>
+                    </div>
+                    <div class="example-item ripple">
+                        <span class="example-number">10000</span>
+                        <span class="example-text">壹万</span>
+                    </div>
+                    <div class="example-item ripple">
+                        <span class="example-number">100000</span>
+                        <span class="example-text">壹拾万</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 浮动操作按钮 -->
+        <button class="fab ripple" id="fabBtn" title="快速清空">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="currentColor"/>
+            </svg>
+        </button>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>支持范围：0 - 999,999,999,999</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
